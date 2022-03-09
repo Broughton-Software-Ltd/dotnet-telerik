@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:5.0
+FROM mcr.microsoft.com/dotnet/sdk:6.0
 
 # install libraries for telerik reporting
 # see https://docs.telerik.com/reporting/use-reports-in-net-core-apps
