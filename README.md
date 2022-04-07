@@ -4,7 +4,7 @@ This repository provides a container, starting from the dotnet sdk, with those a
 
 A tagged image is currently hosted in [GitHub Packages](https://github.com/orgs/Broughton-Software-Ltd/packages/container/package/dotnet-telerik).
 
-### Updating AWS ECR repository image:
+### Updating repository image:
 
 Create a [Personal Access token](https://github.com/settings/tokens) on GitHub with access to `write:packages` and `delete:packages`.
 
@@ -12,16 +12,24 @@ Store it in the variable `$GH_DOCKER_PAT`.
 
 Log in to the `ghcr.io` repository.
 
-`echo $GH_DOCKER_PAT | docker login ghcr.io -u USERNAME --password-stdin`
+```bash
+echo $GH_DOCKER_PAT | docker login ghcr.io -u USERNAME --password-stdin
+```
 
 Build the image
 
-`docker build -t broughton-software/dotnet-telerik .`
+```bash
+docker build -t broughton-software/dotnet-telerik .
+```
 
 Tag the image (in addition to `latest`, give it a number -- e.g. `5.0` for .NET 5, `6.0` for .NET 6, etc.)
 
-`docker tag broughton-software/dotnet-telerik:latest ghcr.io/broughton-software-ltd/dotnet-telerik:latest`
+```bash
+docker tag broughton-software/dotnet-telerik:latest ghcr.io/broughton-software-ltd/dotnet-telerik:latest
+```
 
 Push to GitHub Packages
 
-`docker push ghcr.io/broughton-software-ltd/dotnet-telerik:latest`
+```bash
+docker push ghcr.io/broughton-software-ltd/dotnet-telerik:latest
+```
